@@ -82,12 +82,13 @@
     }
     .balloon {
       position: absolute;
+      top: 0;
       width: 50px;
       height: 70px;
       background-color: #ff6f91;
       border-radius: 50%;
       animation: float 6s ease-in infinite;
-    }
+      z-index: 9999;}
     @keyframes float {
       0% { transform: translateY(100vh); opacity: 0; }
       50% { opacity: 1; }
