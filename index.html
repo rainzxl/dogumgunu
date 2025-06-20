@@ -114,10 +114,7 @@
     opacity: 0;
   }
 }
-  100% { transform: translateY(-100vh) scale(1.2) rotate(15deg); opacity: 0; }
-}
-  100% { transform: translateY(-100vh); opacity: 0; }
-}
+
 </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.css" />
   
@@ -175,7 +172,9 @@ function spawnDecorations() {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
-    el.style.left = `${Math.random() * 100}vw`;
+    el.style.left = `${Math.random() * 90 + 5}vw`;
+    el.style.width = `${Math.random() * 40 + 60}px`;
+    el.style.transform = `rotate(${Math.random() * 360}deg)`;
     document.body.appendChild(el);
     setTimeout(() => el.remove(), 6000);
   }
