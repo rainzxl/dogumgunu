@@ -13,9 +13,9 @@
       height: 100%;
     }
     body {
-  overflow-y: auto;
+  overflow: hidden;
   position: relative;
-    }
+}
     .intro {
       height: 100vh;
       display: flex;
@@ -46,15 +46,14 @@
       background-color: #9a594f;
     }
     #bookContainer {
-      display: none;
-      width: 100%;
-      min-height: 100vh;
-      background: #fff6f1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 30px 0;
-    }
+  display: none;
+  width: 100%;
+  min-height: 100vh;
+  background: #fff6f1;
+  justify-content: center;
+  align-items: center;
+  padding: 30px 0;
+}
     #flipbook {
       width: 800px;
       height: 600px;
@@ -108,6 +107,11 @@
     transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
+  100% {
+    transform: translateY(120vh) rotate(720deg);
+    opacity: 0;
+  }
+}
   100% {
     transform: translateY(120vh) rotate(720deg);
     opacity: 0;
@@ -170,21 +174,26 @@
 <script>
 function spawnDecorations() {
   const shapes = [
-  'confetti.gif',
-  'balloon-3945_256.gif',
-  'flute-14735_256.gif',
-  'gift-8996_256.gif',
-  'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
-  'balloons-12374_256.gif'
-];
+    'confetti.gif',
+    'balloon-3945_256.gif',
+    'flute-14735_256.gif',
+    'gift-8996_256.gif',
+    'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
+    'balloons-12374_256.gif'
+  ];
 
   for (let i = 0; i < 80; i++) {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
-    el.style.left = `${Math.random() * 100                
+    el.style.left = `${Math.random() * 100}vw`;
+    el.style.top = `${Math.random() * -200}px`;
+    el.style.width = `${60 + Math.random() * 40}px`;
+    el.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(el);
     setTimeout(() => el.remove(), 8000);
   }
+}
 }vw`;
     el.style.top = `${Math.random() * -200}px`;
         el.style.width = `${Math.random() * 40 + 60}px`;
