@@ -96,18 +96,23 @@
     }
   .flying {
   position: absolute;
-  top: -100px;
-  width: auto;
-  height: auto;
+  top: -120px;
   pointer-events: none;
   z-index: 9999;
-  animation: fallDown 5s linear forwards;
+  animation: fallEffect linear;
+  animation-duration: calc(4s + 3s * var(--speed));
+  opacity: 0.9;
 }
-@keyframes fallDown {
+@keyframes fallEffect {
   0% {
-    transform: translateY(-100px) rotate(0deg);
+    transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
+  100% {
+    transform: translateY(120vh) rotate(720deg);
+    opacity: 0;
+  }
+}
   100% {
     transform: translateY(110vh) rotate(360deg);
     opacity: 0.8;
@@ -166,17 +171,26 @@
 <script>
 function spawnDecorations() {
   const shapes = [
-  'balloon-3945_256.gif',
-  'flute-14735_256.gif',
-  'gift-8996_256.gif',
-  'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
-  'balloons-12374_256.gif'
-];
-  for (let i = 0; i < 30; i++) {
+    'balloon-3945_256.gif',
+    'flute-14735_256.gif',
+    'gift-8996_256.gif',
+    'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
+    'balloons-12374_256.gif'
+  ];
+
+  for (let i = 0; i < 80; i++) {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
     el.style.left = `${Math.random() * 100}vw`;
+    el.style.setProperty('--speed', Math.random().toFixed(2));
+    el.style.width = `${60 + Math.random() * 40}px`;
+    el.style.animationDelay = `${Math.random() * 2}s`;
+    document.body.appendChild(el);
+
+    setTimeout(() => el.remove(), 8000);
+  }
+}vw`;
     el.style.top = `${Math.random() * -200}px`;
     el.style.width = `${Math.random() * 60 + 60}px`;
     el.style.width = `${Math.random() * 40 + 60}px`;
