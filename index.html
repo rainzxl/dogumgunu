@@ -8,8 +8,8 @@
     html, body {
   margin: 0;
   padding: 0;
-  overflow-y: auto;
-  height: auto;
+  overflow: hidden;
+  height: 100vh;
     }
     body {
   overflow: hidden;
@@ -52,6 +52,7 @@
   justify-content: center;
   align-items: center;
   padding: 30px 0;
+  overflow-y: auto;
 }
     #flipbook {
       width: 800px;
@@ -106,6 +107,8 @@
     transform: translateY(0) rotate(0deg);
     opacity: 1;
   }
+  
+}
   
   100% {
     transform: translateY(120vh) rotate(720deg);
@@ -193,19 +196,6 @@ function spawnDecorations() {
     document.body.appendChild(el);
     setTimeout(() => el.remove(), 8000);
   }
-}
- `${Math.random() * -200}px`;
-    el.style.width = `${60 + Math.random() * 40}px`;
-    el.style.transform = `rotate(${Math.random() * 360}deg)`;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 8000);
-  }
-}vw`;
-    el.style.top = `${Math.random() * -200}px`;
-        el.style.width = `${Math.random() * 40 + 60}px`;
-    el.style.transform = `rotate(${Math.random() * 360}deg)`;
-    document.body.appendChild(el);
-      }
 }
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
