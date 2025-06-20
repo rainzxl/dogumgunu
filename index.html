@@ -204,6 +204,10 @@ function spawnDecorations() {
     
 
     function startMemoryBook() {
+  document.getElementById('floatingCake').style.display = 'block';
+  setTimeout(() => {
+    document.getElementById('floatingCake').style.display = 'none';
+  }, 4000);
   spawnDecorations();
       document.querySelector('.intro').style.display = 'none';
       document.getElementById('bookContainer').style.display = 'flex';
@@ -214,5 +218,6 @@ function spawnDecorations() {
   </script>
 
 
+  <img id="floatingCake" src="cake.gif" alt="Doğum Günü Pastası" style="display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 250px; z-index: 99999; animation: fadeInCake 2s ease-in-out;">
 </body>
 </html>
