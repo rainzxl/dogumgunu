@@ -151,7 +151,13 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 function spawnDecorations() {
-  const shapes = ['balloon.gif', 'confetti.gif', 'star.gif', 'heart.gif'];
+  const shapes = [
+  'balloon-3945_256.gif',
+  'flute-14735_256.gif',
+  'gift-8996_256.gif',
+  'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
+  'balloons-12374_256.gif'
+];
   for (let i = 0; i < 30; i++) {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
