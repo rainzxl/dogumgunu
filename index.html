@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Doğum Günün Kutlu Olsun</title>
   <style>
     html, body {
@@ -35,6 +35,11 @@
       border: none;
       border-radius: 12px;
       cursor: pointer;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: background 0.3s ease;
+    }
+    .intro button:hover {
+      background-color: #9a594f;
     }
     #bookContainer {
       display: none;
@@ -50,32 +55,38 @@
       height: 90vh;
     }
     .page {
-      background: white;
-      padding: 20px;
-      border-radius: 10px;
+      background-color: #ffffff;
       border: 2px solid #f3dad2;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+      overflow: hidden;
     }
     .page img {
       width: 100%;
       border-radius: 10px;
     }
     .page p {
-      margin-top: 10px;
+      margin-top: 15px;
       font-size: 1.1em;
       color: #5a4a42;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
     }
     .balloon {
       position: absolute;
       width: 50px;
       height: 70px;
       background-color: #ff6f91;
-      border-radius: 50%;
+      border-radius: 50% 50% 50% 50%;
       animation: float 6s ease-in infinite;
     }
     @keyframes float {
-      0% { transform: translateY(100vh); opacity: 0; }
+      0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
       50% { opacity: 1; }
-      100% { transform: translateY(-100vh); opacity: 0; }
+      100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
     }
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.css" />
@@ -93,11 +104,11 @@
   <div id="bookContainer">
     <div id="flipbook">
       <div class="page">
-        <img src="1_ilk_bulusma.jpeg" alt="İlk buluşma">
+        <img src="1_ilk_bulusma.jpeg" alt="İlk buluşmamız">
         <p>İlk kez kokunu duydum, ilk kez sarıldım, ilk kez öptüm... Bu gündü, unutamam.</p>
       </div>
       <div class="page">
-        <img src="2_ilk_tatil.jpeg" alt="İlk tatil">
+        <img src="2_ilk_tatil.jpeg" alt="İlk tatilimiz">
         <p>Seninle ilk tatilimiz... Gecesi, gündüzü, gülüşün… Her şey hafızamda.</p>
       </div>
       <div class="page">
@@ -107,6 +118,14 @@
       <div class="page">
         <img src="4_ilk_konser.jpeg" alt="İlk konser">
         <p>Kalbim müzikle değil, seninle attı o gece. İlk konserimizdi ama unutulmazdı.</p>
+      </div>
+      <div class="page">
+        <img src="5_ertoyla_ilk_bulusma.jpg" alt="Ertoy'la İlk Buluşmamız">
+        <p>Seninle ve Erto'yla ilk kez bir arada olduğumuz gündü. Ne kadar da heyecanlı ve güzel bir andı.</p>
+      </div>
+      <div class="page">
+        <img src="6_ilk_mac.jpg" alt="İlk Maça Gidişimiz">
+        <p>İlk kez birlikte forma giyip maça gittik. O forma sana çok yakıştı!</p>
       </div>
     </div>
   </div>
@@ -118,9 +137,9 @@
       for (let i = 0; i < count; i++) {
         const balloon = document.createElement('div');
         balloon.classList.add('balloon');
-        balloon.style.left = Math.random() * 100 + 'vw';
+        balloon.style.left = `${Math.random() * 100}vw`;
         balloon.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 75%)`;
-        balloon.style.animationDuration = (5 + Math.random() * 5) + 's';
+        balloon.style.animationDuration = `${5 + Math.random() * 5}s`;
         document.body.appendChild(balloon);
         setTimeout(() => balloon.remove(), 10000);
       }
@@ -130,11 +149,7 @@
       document.querySelector('.intro').style.display = 'none';
       document.getElementById('bookContainer').style.display = 'flex';
       document.getElementById('bgMusic').play();
-      $('#flipbook').turn({
-        width: '80vw',
-        height: '90vh',
-        autoCenter: true
-      });
+      $('#flipbook').turn({ width: '80vw', height: '90vh', autoCenter: true });
       createBalloons();
     }
   </script>
