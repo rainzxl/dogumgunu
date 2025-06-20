@@ -178,11 +178,10 @@
 <script>
 function spawnDecorations() {
   const shapes = [
-    'confetti.gif',
     'balloon-3945_256.gif',
     'flute-14735_256.gif',
     'gift-8996_256.gif',
-    'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
+    'confetti.gif.gif',
     'balloons-12374_256.gif'
   ];
 
@@ -191,6 +190,13 @@ function spawnDecorations() {
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
     el.style.left = `${Math.random() * 100}vw`;
+    el.style.top = `${Math.random() * -200}px`;
+    el.style.width = `${60 + Math.random() * 40}px`;
+    el.style.transform = `rotate(${Math.random() * 360}deg)`;
+    document.body.appendChild(el);
+    setTimeout(() => el.remove(), 8000);
+  }
+}vw`;
     el.style.top = `${Math.random() * -200}px`;
         el.style.width = `${Math.random() * 40 + 60}px`;
     el.style.transform = `rotate(${Math.random() * 360}deg)`;
