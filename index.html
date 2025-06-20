@@ -158,9 +158,11 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">function spawnDecorations() {
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+function spawnDecorations() {
   const shapes = ['confetti', 'star', 'heart'];
-  for (let i = 0; i < 30; i++) {
+  for (let i = 0; i < 50; i++) {
     const el = document.createElement('div');
     const type = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add(type);
@@ -171,7 +173,7 @@
   }
 }
 </script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.js"></script>
   <script>
     function createBalloons(count = 20) {
   for (let i = 0; i < count; i++) {
@@ -204,5 +206,6 @@
     }
   </script>
 
+<canvas id="splashCanvas" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 9998;"></canvas>
 </body>
 </html>
