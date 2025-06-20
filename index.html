@@ -185,14 +185,7 @@ function spawnDecorations() {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
-    el.style.left = `${Math.random() * 100}vw`;
-    el.style.top = `${Math.random() * -200}px`;
-    el.style.width = `${60 + Math.random() * 40}px`;
-    el.style.transform = `rotate(${Math.random() * 360}deg)`;
-    document.body.appendChild(el);
-    setTimeout(() => el.remove(), 8000);
-  }
-}
+    el.style.left = `${Math.random() * 100
 }vw`;
     el.style.top = `${Math.random() * -200}px`;
         el.style.width = `${Math.random() * 40 + 60}px`;
