@@ -133,7 +133,7 @@
 </head>
 <body>
   <div class="intro">
-    <h1>Doğum Günün Kutlu Olsun Zeynep <3</h1>
+    <h1>Doğum Günün Kutlu Olsun</h1>
     <button onclick="startMemoryBook()">Tıklayınca sana özel bir defter açılacak</button>
   </div>
 
@@ -174,10 +174,11 @@
 <script>
 function spawnDecorations() {
   const shapes = [
+    'confetti.gif',
     'balloon-3945_256.gif',
     'flute-14735_256.gif',
     'gift-8996_256.gif',
-    'confetti.gif.gif',
+    'e5833e1bea7d379f0f4e4ae250b7cf81.gif',
     'balloons-12374_256.gif'
   ];
 
@@ -193,7 +194,7 @@ function spawnDecorations() {
     setTimeout(() => el.remove(), 8000);
   }
 }
-    el.style.top = `${Math.random() * -200}px`;
+ `${Math.random() * -200}px`;
     el.style.width = `${60 + Math.random() * 40}px`;
     el.style.transform = `rotate(${Math.random() * 360}deg)`;
     document.body.appendChild(el);
