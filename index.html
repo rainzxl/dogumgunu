@@ -130,49 +130,6 @@
       0% { opacity: 0; transform: scale(0.8); }
       100% { opacity: 1; transform: scale(1); }
     }
-      .page {
-      position: relative;
-      background-image: url('paper_texture.jpg');
-      background-size: cover;
-      background-position: center;
-      animation: fadeInPage 1s ease;
-    }
-
-    .page p {
-      animation: slideUpFade 1s ease;
-    }
-
-    @keyframes fadeInPage {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    @keyframes slideUpFade {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    .sparkle {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background-image: url('sparkle.gif');
-      background-size: contain;
-      background-repeat: no-repeat;
-      pointer-events: none;
-      animation: sparkleFall 2s linear forwards;
-    }
-
-    @keyframes sparkleFall {
-      0% { transform: translateY(-50px); opacity: 1; }
-      100% { transform: translateY(600px); opacity: 0; }
-    }  
   </style>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/turn.js/4.1.0/turn.min.css" />
   
@@ -226,17 +183,7 @@
     </div>
   </div>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">function generateSparkles() {
-  for (let i = 0; i < 30; i++) {
-    const sparkle = document.createElement('div');
-    sparkle.className = 'sparkle';
-    sparkle.style.left = `${Math.random() * 100}vw`;
-    sparkle.style.top = `${Math.random() * -100}px`;
-    document.body.appendChild(sparkle);
-    setTimeout(() => sparkle.remove(), 2000);
-  }
-}
-</script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
 function spawnDecorations() {
   const shapes = [
@@ -265,7 +212,6 @@ function spawnDecorations() {
     
 
     function startMemoryBook() {
-  generateSparkles();
   document.getElementById('floatingCake').style.display = 'block';
   setTimeout(() => {
     document.getElementById('floatingCake').style.display = 'none';
