@@ -96,19 +96,23 @@
     }
   .flying {
   position: absolute;
-  bottom: 0;
+  top: -100px;
   width: auto;
   height: auto;
-  max-width: 80px;
-  animation: floatUp 6s ease-in forwards;
-  z-index: 9999;
   pointer-events: none;
+  z-index: 9999;
+  animation: fallDown 5s linear forwards;
 }
-@keyframes floatUp {
+@keyframes fallDown {
   0% {
-    transform: translateY(0) scale(0.8) rotate(0deg);
+    transform: translateY(-100px) rotate(0deg);
     opacity: 1;
   }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0.8;
+  }
+}
   100% {
     transform: translateY(-100vh) scale(1.2) rotate(15deg);
     opacity: 0;
@@ -172,7 +176,9 @@ function spawnDecorations() {
     const el = document.createElement('img');
     el.src = shapes[Math.floor(Math.random() * shapes.length)];
     el.classList.add('flying');
-    el.style.left = `${Math.random() * 90 + 5}vw`;
+    el.style.left = `${Math.random() * 100}vw`;
+    el.style.top = `${Math.random() * -200}px`;
+    el.style.width = `${Math.random() * 60 + 60}px`;
     el.style.width = `${Math.random() * 40 + 60}px`;
     el.style.transform = `rotate(${Math.random() * 360}deg)`;
     document.body.appendChild(el);
